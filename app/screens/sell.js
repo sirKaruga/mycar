@@ -18,6 +18,7 @@ import {Picker} from '@react-native-picker/picker';
 import * as Animatable from 'react-native-animatable';
 import '../sqlite/sqliteglobal.js';
 import {useSelector, useDispatch} from 'react-redux';
+import {Framer, Award, User, PhoneCall} from 'react-native-feather';
 
 const db = global.db;
 
@@ -277,7 +278,7 @@ export default function sell() {
               errorMessage={
                 err.model === true ? 'Vehicle Model is required' : null
               }
-              // leftIcon={<Ionicons name="logo-buffer" size={24} color="black" />}
+              leftIcon={<Framer size={24} color="black" />}
             />
           </View>
 
@@ -311,9 +312,7 @@ export default function sell() {
               errorMessage={
                 err.price === true ? 'Vehicle Price is required' : null
               }
-              // leftIcon={
-              //   <Ionicons name="ios-cash-outline" size={24} color="black" />
-              // }
+              leftIcon={<Award size={24} color="black" />}
             />
           </View>
 
@@ -472,9 +471,7 @@ export default function sell() {
               errorMessage={
                 err.seller === true ? 'Your Name is required' : null
               }
-              // leftIcon={
-              //   <Ionicons name="person-add-outline" size={24} color="black" />
-              // }
+              leftIcon={<User size={24} color="black" />}
             />
           </View>
           <View>
@@ -488,9 +485,7 @@ export default function sell() {
               errorMessage={
                 err.contact === true ? 'Your contact is required' : null
               }
-              // leftIcon={
-              //   // <Ionicons name="call-outline" size={24} color="black" />
-              // }
+              leftIcon={<PhoneCall size={24} color="black" />}
             />
           </View>
         </Card>

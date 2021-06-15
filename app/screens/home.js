@@ -17,6 +17,7 @@ import NoInternet from '../components/noInternet';
 import '../sqlite/sqliteglobal.js';
 //import { store } from "../store/";
 import {useSelector, useDispatch} from 'react-redux';
+//import {useNetInfo} from '@react-native-community/netinfo';
 
 const db = global.db;
 
@@ -24,6 +25,8 @@ const source = 'carbroet';
 //console.log(store.getState);
 
 export default function home({navigation}) {
+  // const netInfo = useNetInfo();
+  // console.log(netInfo.isConnected.toString());
   const [loader, setloader] = useState(true);
 
   useEffect(() => {

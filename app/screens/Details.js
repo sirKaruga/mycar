@@ -8,9 +8,10 @@ import {
   Platform,
   Alert,
 } from 'react-native';
-import {Card, Input} from 'react-native-elements';
+import {Card} from 'react-native-elements';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 //import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Check, PenTool, User, PhoneCall} from 'react-native-feather';
 import {useSelector} from 'react-redux';
 
 export default function details({navigation}) {
@@ -40,11 +41,7 @@ export default function details({navigation}) {
           <View
             style={{flex: 1, borderRightColor: 'grey', borderRightWidth: 1}}>
             <Text>
-              {/* <Ionicons
-                name="checkmark-done-outline"
-                size={20}
-                color="purple"
-              /> */}
+              <Check size={20} color="purple" />
               Registered
             </Text>
             <Text style={{color: 'purple', paddingTop: 3}}>
@@ -59,21 +56,20 @@ export default function details({navigation}) {
             <Text style={{paddingTop: 3}}>
               -<Text style={{fontWeight: 'bold'}}>Promotion for:</Text> 30days
             </Text>
-            {/* <Ionicons name="trophy-outline" size={74} color="black" /> */}
+            <PenTool width={62} height={72} color="black" />
           </View>
           <View style={{flex: 1, marginTop: 8}}>
             <Text
               style={{fontSize: 18, fontStyle: 'italic', paddingBottom: 10}}>
               <Text>
-                {/* <Ionicons name="person-outline" size={25} color="black" />{" "} */}
+                <User width={20} height={25} color="black" />{' '}
                 {gstate.userData.name}
               </Text>
             </Text>
             <Text
               style={{fontSize: 18, fontStyle: 'italic', paddingBottom: 10}}>
               <Text>
-                {/* <Ionicons name="call-outline" size={25} color="black" />{" "} */}
-                {gstate.userData.contact}
+                <PhoneCall size={25} color="black" /> {gstate.userData.contact}
               </Text>
             </Text>
             <Text style={{fontStyle: 'italic'}}>

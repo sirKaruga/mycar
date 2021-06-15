@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   Image,
@@ -9,9 +9,9 @@ import {
   TouchableOpacity,
   Linking,
   Dimensions,
-} from "react-native";
-import { Card } from "react-native-elements";
-import { MapPin, User, PhoneCall } from "react-native-feather";
+} from 'react-native';
+import {Card} from 'react-native-elements';
+import {MapPin, User, PhoneCall} from 'react-native-feather';
 
 export default function productDetails(props) {
   const extract = props.route.params.productData;
@@ -30,8 +30,8 @@ export default function productDetails(props) {
   const modImages = Object.values(item.images);
   const newImages = [];
 
-  modImages.forEach((element) => {
-    newImages.push({ key: modImages.indexOf(element), value: element });
+  modImages.forEach(element => {
+    newImages.push({key: modImages.indexOf(element), value: element});
   });
 
   // var filtered = newImages.filter(function (value, index, arr) {
@@ -46,26 +46,24 @@ export default function productDetails(props) {
   return (
     <ScrollView>
       <Card marginHorizontal={3} paddingHorizontal={0}>
-        <View style={{ height: "100%" }}>
+        <View style={{height: '100%'}}>
           <StatusBar />
-          <View style={[styles.imageSection, { justifyContent: "center" }]}>
+          <View style={[styles.imageSection, {justifyContent: 'center'}]}>
             <ScrollView
               bouncesZoom={true}
               centerContent={true}
-              horizontal={true}
-            >
-              {newImages.map((img) => (
+              horizontal={true}>
+              {newImages.map(img => (
                 <View key={img.key}>
                   <TouchableOpacity
                     onPress={() =>
-                      props.navigation.navigate("viewImage", {
-                        image: { uri: `${img.value}` },
+                      props.navigation.navigate('viewImage', {
+                        image: {uri: `${img.value}`},
                       })
-                    }
-                  >
+                    }>
                     <Image
                       style={[styles.itemImage]}
-                      source={{ uri: `${img.value}` }}
+                      source={{uri: `${img.value}`}}
                     />
                   </TouchableOpacity>
                 </View>
@@ -75,117 +73,110 @@ export default function productDetails(props) {
           <Text
             style={{
               fontSize: 18,
-              fontWeight: 200,
+              fontWeight: '200',
               borderBottomWidth: 1,
-              borderBottomColor: "grey",
-            }}
-          >
+              borderBottomColor: 'grey',
+            }}>
             {item.title}
           </Text>
           <View style={styles.detailsSections}>
-            <View style={{ flexDirection: "row", width: "100%" }}>
+            <View style={{flexDirection: 'row', width: '100%'}}>
               <Text
                 style={{
                   flex: 1,
                   //   alignSelf: "flex-start",
-                  color: "grey",
+                  color: 'grey',
                   fontSize: 18,
-                }}
-              >
+                }}>
                 Condition: {item.condition}
               </Text>
               <Text
                 style={{
                   flex: 1,
-                  width: "100%",
-                  textAlign: "right",
-                  alignSelf: "flex-end",
-                  fontWeight: "bold",
+                  width: '100%',
+                  textAlign: 'right',
+                  alignSelf: 'flex-end',
+                  fontWeight: 'bold',
                   fontSize: 18,
-                }}
-              >
+                }}>
                 Price: ksh. {item.price}/=
               </Text>
             </View>
 
-            <View style={{ backgroundColor: "#fff" }}>
+            <View style={{backgroundColor: '#fff'}}>
               <Card marginHorizontal={0} paddingHorizontal={0}>
                 <Text
                   style={{
-                    fontWeight: "400",
-                    fontStyle: "italic",
+                    fontWeight: '400',
+                    fontStyle: 'italic',
                     fontSize: 17,
-                    color: "purple",
+                    color: 'purple',
                     marginBottom: 10,
                     borderBottomWidth: 1,
-                    borderBottomColor: "rgb(220,220,220)",
-                  }}
-                >
+                    borderBottomColor: 'rgb(220,220,220)',
+                  }}>
                   Seller details
                 </Text>
 
                 <View
                   style={{
-                    width: "100%",
-                    flexDirection: "row",
+                    width: '100%',
+                    flexDirection: 'row',
                     marginBottom: 10,
-                  }}
-                >
-                  <View style={{ flex: 1 }}>
-                    <Text style={{ marginVertical: 4 }}>
+                  }}>
+                  <View style={{flex: 1}}>
+                    <Text style={{marginVertical: 4}}>
                       <MapPin
                         stroke="grey"
                         fill="#fff"
                         width={16}
                         height={16}
-                      />{" "}
+                      />{' '}
                       Location:
                     </Text>
-                    <Text style={{ marginVertical: 4 }}>
-                      <User stroke="grey" fill="#fff" width={16} height={16} />{" "}
+                    <Text style={{marginVertical: 4}}>
+                      <User stroke="grey" fill="#fff" width={16} height={16} />{' '}
                       Sold by:
                     </Text>
-                    <Text style={{ marginVertical: 4 }}>
+                    <Text style={{marginVertical: 4}}>
                       <PhoneCall
                         stroke="grey"
                         fill="#fff"
                         width={16}
                         height={16}
-                      />{" "}
+                      />{' '}
                       Contact:
                     </Text>
                   </View>
 
-                  <View style={{ flex: 1 }}>
-                    <Text style={{ marginVertical: 4 }}>{item.location}</Text>
-                    <Text style={{ marginVertical: 4 }}>{item.seller}</Text>
-                    <Text style={{ marginVertical: 4 }}> {item.contact}</Text>
+                  <View style={{flex: 1}}>
+                    <Text style={{marginVertical: 4}}>{item.location}</Text>
+                    <Text style={{marginVertical: 4}}>{item.seller}</Text>
+                    <Text style={{marginVertical: 4}}> {item.contact}</Text>
                   </View>
                 </View>
               </Card>
               <View>
                 <Text
                   style={{
-                    backgroundColor: "beige",
+                    backgroundColor: 'beige',
                     marginBottom: 10,
                     paddingVertical: 7,
-                  }}
-                >
+                  }}>
                   Seller score: 100%
                 </Text>
               </View>
               <Card marginHorizontal={0} paddingHorizontal={0}>
                 <Text
                   style={{
-                    fontWeight: "400",
-                    fontStyle: "italic",
+                    fontWeight: '400',
+                    fontStyle: 'italic',
                     fontSize: 17,
-                    color: "blue",
-                  }}
-                >
+                    color: 'blue',
+                  }}>
                   Product details
                 </Text>
-                <Text style={{ fontFamily: "sans-serif-light", fontSize: 16 }}>
+                <Text style={{fontFamily: 'sans-serif-light', fontSize: 16}}>
                   {item.productDetails}
                 </Text>
               </Card>
@@ -195,20 +186,18 @@ export default function productDetails(props) {
                   Linking.openURL(`tel:${item.contact}`);
                 }}
                 style={{
-                  backgroundColor: "green",
+                  backgroundColor: 'green',
                   marginTop: 15,
                   borderRadius: 32,
                   marginBottom: 25,
-                }}
-              >
+                }}>
                 <Text
                   style={{
-                    color: "white",
+                    color: 'white',
                     fontSize: 19,
                     paddingVertical: 10,
-                    alignSelf: "center",
-                  }}
-                >
+                    alignSelf: 'center',
+                  }}>
                   Call Seller
                 </Text>
               </TouchableOpacity>
@@ -223,17 +212,17 @@ const styles = StyleSheet.create({
   imageSection: {
     flex: 2,
     borderBottomWidth: 1,
-    borderBottomColor: "rgb(220,220,220)",
-    backgroundColor: "#fff",
+    borderBottomColor: 'rgb(220,220,220)',
+    backgroundColor: '#fff',
   },
   detailsSections: {
     flex: 3,
     paddingHorizontal: 5,
   },
   itemImage: {
-    width: Math.round(Dimensions.get("window").width) / 1.3,
+    width: Math.round(Dimensions.get('window').width) / 1.3,
     height: 210,
     marginTop: 5,
-    resizeMode: "contain",
+    resizeMode: 'contain',
   },
 });

@@ -8,6 +8,7 @@ import * as ImagePicker from 'expo-image-picker';
 import {State} from 'react-native-gesture-handler';
 import '../sqlite/sqliteglobal.js';
 import {useSelector, useDispatch} from 'react-redux';
+import {PenTool, User, PhoneCall, CheckCircle} from 'react-native-feather';
 
 const db = global.db;
 
@@ -91,13 +92,9 @@ const profile = ({navigation}) => {
           <Text style={styles.subHead}>Registration details</Text>
           <View style={{flexDirection: 'row', flex: 2}}>
             <View style={{flex: 1}}>
-              {/* <Ionicons name="trophy-outline" size={74} color="black" /> */}
+              <PenTool width={65} height={74} color="black" />
               <Text>
-                {/* <Ionicons
-                  name="checkmark-done-outline"
-                  size={20}
-                  color="black"
-                /> */}
+                <CheckCircle size={20} color="black" />
                 Registered
               </Text>
             </View>
@@ -105,15 +102,13 @@ const profile = ({navigation}) => {
               <Text
                 style={{fontSize: 18, fontStyle: 'italic', paddingBottom: 10}}>
                 <Text>
-                  {/* <Ionicons name="person-outline" size={25} color="black" />{" "} */}
-                  {details[0].name}
+                  <User size={25} color="black" /> {details[0].name}
                 </Text>
               </Text>
               <Text
                 style={{fontSize: 18, fontStyle: 'italic', paddingBottom: 10}}>
                 <Text>
-                  {/* <Ionicons name="call-outline" size={25} color="black" />{" "} */}
-                  {details[0].contact}
+                  <PhoneCall size={25} color="black" /> {details[0].contact}
                 </Text>
               </Text>
               <Text style={{fontStyle: 'italic'}}>
@@ -184,9 +179,7 @@ const profile = ({navigation}) => {
               onChangeText={val => handleChange(val, 'name')}
               errorStyle={{color: 'red'}}
               errorMessage="Your name is required"
-              // leftIcon={
-              //   // <Ionicons name="person-add-outline" size={24} color="black" />
-              // }
+              leftIcon={<User size={24} color="black" />}
             />
           </View>
           <View>
@@ -198,9 +191,7 @@ const profile = ({navigation}) => {
               onChangeText={val => handleChange(val, 'contact')}
               errorStyle={{color: 'red'}}
               errorMessage="Contact is required"
-              // leftIcon={
-              //   // <Ionicons name="call-outline" size={24} color="black" />
-              // }
+              leftIcon={<PhoneCall size={24} color="black" />}
             />
           </View>
 
